@@ -1,0 +1,257 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 35% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 230 35% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 230 35% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 180 100% 60%;
+    --primary-foreground: 230 35% 7%;
+
+    --secondary: 270 100% 70%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 214 20% 22%;
+    --muted-foreground: 215 16% 65%;
+
+    --accent: 335 100% 65%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 213 27% 84%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 230 40% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 180 100% 60%;
+    --sidebar-primary-foreground: 230 35% 7%;
+    --sidebar-accent: 233 30% 10%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 233 30% 15%;
+    --sidebar-ring: 180 100% 60%;
+  }
+
+  .light {
+    --background: 210 40% 96%;
+    --foreground: 230 35% 7%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 35% 7%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 35% 7%;
+
+    --primary: 180 100% 40%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 270 90% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 90%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 335 90% 55%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 47% 11%;
+    
+    --sidebar-background: 210 40% 96%;
+    --sidebar-foreground: 230 35% 7%;
+    --sidebar-primary: 180 100% 40%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 90%;
+    --sidebar-accent-foreground: 230 35% 7%;
+    --sidebar-border: 210 40% 85%;
+    --sidebar-ring: 180 100% 40%;
+  }
+}
+body {
+  @apply cursor-none;
+}
+
+body *:hover {
+  @apply cursor-none;
+}
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html, body {
+    @apply antialiased font-mono text-foreground bg-background min-h-screen;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-none;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,255,255,0.1) 25%, rgba(0,255,255,0.1) 75%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+.text-gradient {
+  @apply font-display font-bold;
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px hsl(var(--primary) / 50%),
+               0 0 20px hsl(var(--primary) / 30%),
+               0 0 30px hsl(var(--primary) / 20%);
+}
+
+.shadow-glow {
+  box-shadow: 0 0 10px 0 hsl(var(--primary) / 20%),
+              0 0 20px 0 hsl(var(--primary) / 10%);
+}
+
+.shadow-glow-sm {
+  box-shadow: 0 0 5px 0 hsl(var(--primary) / 20%),
+              0 0 10px 0 hsl(var(--primary) / 10%);
+}
+
+.glass-terminal {
+  @apply rounded-none;
+  backdrop-filter: blur(8px);
+  background-color: rgba(5, 10, 15, 0.7);
+}
+
+.perspective {
+  perspective: 1000px;
+  transform: rotateX(2deg);
+}
+
+.filter-cyberpunk {
+  filter: saturate(1.2) contrast(1.1) brightness(0.9);
+}
+
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, hsl(var(--primary) / 5%) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 5%) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-grid-small-pattern {
+  background-image: 
+    linear-gradient(to right, hsl(var(--primary) / 5%) 1px, transparent 1px),
+    linear-gradient(to bottom, hsl(var(--primary) / 5%) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.slide-up {
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.slide-up.in-view {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade-in.in-view {
+  opacity: 1;
+}
+
+.code-highlight {
+  @apply text-code-foreground bg-code rounded px-1 py-0.5 font-mono text-sm;
+}
+
+.code-block {
+  @apply text-code-foreground bg-code rounded-lg p-4 font-mono text-sm overflow-x-auto my-4;
+}
+
+.code-keyword {
+  @apply text-code-purple;
+}
+
+.code-function {
+  @apply text-code-blue;
+}
+
+.code-string {
+  @apply text-code-green;
+}
+
+.code-comment {
+  @apply text-muted-foreground;
+}
+
+.code-number {
+  @apply text-code-yellow;
+}
+
+.code-operator {
+  @apply text-code-red;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
